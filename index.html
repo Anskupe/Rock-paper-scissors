@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rock,paper,scissors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+
+<script>   
+    let playerSelection= prompt("Choose rock, paper or scissors");
+    playerSelection.toUpperCase();
+    let play=["rock", "paper", "scissors"];
+    let computerSelection= computerPlay();
+    let playerScore= 0;
+    let computerScore= 0;
+
+
+    function computerPlay(){
+return play[Math.floor(Math.random() * 3)];
+    }
+
+    function playRounds(playerSelection, computerSelection) {
+
+
+	if(playerSelection == "rock" && computerSelection == "paper")
+    {
+        computerScore+=1;
+        return "You Lose! Paper beats Rock";
+    } else if(playerSelection == "rock" && computerSelection == "scissors"){
+        playerScore+=1;
+        return "You win!Rock beats scissors";
+
+     }else if(playerSelection == "paper" && computerSelection == "rock"){
+        playerScore+=1;
+        return "You win! Paper beats Rock";
+
+    } else if(playerSelection == "paper" && computerSelection == "scissors"){
+        computerScore+=1;
+        return "You Lose! Scissors beats paper";
+    }
+
+    else if(playerSelection == "scissors" && computerSelection == "rock"){
+        computerScore+=1;
+        return "You Lose! Rock beats scissors";
+    } 
+    else if(playerSelection == "scissors" && computerSelection == "paper"){
+        playerScore+=1;
+        return "You win! Scissors beats paper";
+    } 
+     else if (playerSelection == computerSelection){
+        return "You tied!";
+    } 
+    else {
+      return "What just happend?";
+    }
+}
+    function game() {
+for(let i = 0; i < 5; i++){
+    
+return playRounds(playerSelection, computerSelection);
+}
+if(playerScore > computerScore){
+return "Yeah for you!";
+
+}else if(playerScore < computerScore){
+return "I win!";
+}else {
+    return "Nobody wins!";
+}
+
+    }
+
+</script>
+</body>
+
+</html> 
